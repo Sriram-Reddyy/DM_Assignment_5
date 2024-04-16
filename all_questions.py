@@ -166,7 +166,7 @@ def question7():
 
     # type: explain_string
     answers['(ii) appropriate metric pair, explain'] = (
-        "Precision, recall, and F1-measure are the appropriate metrics because they provide a more complete picture of a classifier's performance, especially in the context of an imbalanced dataset where positive cases are much less frequent than negative ones."
+        "Precision, recall, and the F1-measure are the suitable metrics as they offer a comprehensive evaluation of a classifier's performance, particularly in scenarios with imbalanced datasets where positive cases are significantly less prevalent than negative ones."
     )
 
     # type: string
@@ -230,7 +230,7 @@ def question9():
 
     # type: explain_string
     answers['(ii) Explain your choices of best and worst metrics'] = (
-        "The best metric in this case is the F-measure, as it provides a balance between precision and recall, which is crucial in scenarios with imbalanced classes, such as predicting weather where one outcome might be significantly more common. Accuracy is the worst metric as it can be disproportionately high due to a large number of true negatives, which does not necessarily indicate good predictive performance for the minority class."
+        "In scenarios characterized by imbalanced classes, such as predicting weather where one outcome is significantly more prevalent, the F-measure emerges as the most suitable metric. It strikes a balance between precision and recall, essential for assessing model performance accurately. Accuracy, on the other hand, might not accurately reflect predictive prowess, particularly for the minority class, as it can be artificially inflated by a large number of true negatives. Therefore, it's considered the least appropriate metric in such imbalanced settings, as it doesn't adequately account for the class distribution and may mask deficiencies in capturing minority class instances."
     )
     return answers
 
@@ -253,12 +253,12 @@ def question10():
 
     # type: explain_string
     answers['(c) Which evaluation measure? Explain'] = (
-        "When the significant cost of missing a diagnosis (false negative) outweighs the risks of false positives in a medical context, TPR/FPR is the best measure for evaluating cancer detection tests T1 and T2, emphasizing the importance of the test's ability to correctly identify genuine positives."
+        "In a medical context where the consequences of missing a diagnosis (false negative) carry significant costs, such as in cancer detection, the True Positive Rate (TPR) and False Positive Rate (FPR) become paramount metrics for evaluating tests T1 and T2. This emphasizes the importance of the test's ability to accurately identify true positives."
     )
 
     # type: explain_string
     answers['(d) Example scenario where you would reverse choise in (c)'] = (
-        "If the population being examined has a high likelihood of not having cancer (a very low prevalence), you may prefer the F-measure to TPR/FPR. False positives can have major effects, such as psychological discomfort, exposure to dangerous tests, or increased financial costs due to unnecessary diagnostic treatments. In this scenario, the F-measure is recommended because it takes into account both true and false positives. Furthermore, to ensure that the test's precision is as high as possible in order to reduce the number of false positives, you can prioritize the F-measure if the follow-up procedures following a positive test are costly, invasive, or dangerous."
+        "In situations where the population being examined has a low prevalence of cancer, false positives can have significant consequences, including psychological distress, exposure to potentially harmful tests, and increased financial burdens from unnecessary diagnostic procedures. In such scenarios, the F-measure becomes a preferred metric over TPR/FPR. The F-measure considers both precision and recall, offering a balanced assessment of a test's performance. This is particularly valuable when the focus is on minimizing false positives while still capturing as many true positives as possible. Prioritizing the F-measure is advisable when follow-up procedures following a positive test result are costly, invasive, or pose risks to the patient. By emphasizing the F-measure, healthcare providers can strive to achieve higher precision, thereby reducing the occurrence of false positives and mitigating the potential adverse effects associated with them."
     )
 
     return answers
