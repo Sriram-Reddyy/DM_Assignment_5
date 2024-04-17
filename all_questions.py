@@ -48,7 +48,8 @@ def question2():
     answers['(b) C'] = True
 
     # type: bool
-    answers['(b) D'] =  False
+    answers['(b) D'] = False
+
     # type: eval_float
     # The formulas should only use the variable 'p'. The formulas should be
     # a valid Python expression. Use the functions in the math module as
@@ -69,7 +70,7 @@ def question3():
     answers['Agree?'] = "No"
 
     # type: explain_string
-    answers['Explain'] = "Alan’s approach is not effective because flipping a coin is purely random and has no predictive power. It does not take into account any information relevant to stock market movements. Ensemble methods rely on combining predictions from models that are individually better than random chance, which coin flipping is not."
+    answers['Explain'] = "Because Alan's coin flip ensemble method relies on random events, it misses important patterns or data from the intricate and varied stock market, making it inherently faulty for predicting stock market movements."
     return answers
 
 
@@ -94,19 +95,19 @@ def question5():
 
     # type: string
     # choices: ['i', 'ii', 'iii', 'iv']
-    answers['(a)'] = "iii"
+    answers['(a)'] = 'iii'
 
     # type: string
     # choices: ['i', 'ii', 'iii', 'iv']
-    answers['(b)'] = "i"
+    answers['(b)'] = 'i'
 
     # type: string
     # choices: ['i', 'ii', 'iii', 'iv']
-    answers['(c)'] = "ii"
+    answers['(c)'] = 'ii'
 
     # type: string
     # choices: ['i', 'ii', 'iii', 'iv']
-    answers['(d)'] = "iv"
+    answers['(d)'] = 'iv'
     return answers
 
 
@@ -127,23 +128,19 @@ def question6():
     answers['(a) C2-FPR'] = "2*p"
 
     # type: string
+    # Hint: The random guess line in an ROC curve corresponds to TPR=FPR.
     # choices: ['yes', 'no']
     answers['(b) C2 better classifier than C1?'] = 'no'
 
     # type: explain_string
-    answers['(b) C2 better classifier than C1? Explain'] = (
-            "C2 doesn't outperform C1 as both exhibit identical expected True Positive Rates (TPR) and False Positive Rates (FPR), positioning them along the random guess line of an ROC curve. This suggests that neither classifier demonstrates predictive capability beyond random chance."
-    )
+    answers['(b) C2 better classifier than C1? Explain'] = 'Even though C2 has higher values of both metrics, it is not always a stronger classifier than C1; both classifiers show random performance with equal trade-offs between TPR and FPR.'
 
     # type: string
     # choices: ['TPR/FPR', 'precision/recall']
     answers['(c) Which metric?'] = 'precision/recall'
 
     # type: explain_string
-    answers['(c) explain'] = (
-        "In this context, precision and recall offer more insightful metrics as they account for the trade-off between true positives and the relevance of predictions (precision) and the model's effectiveness in identifying all positive samples (recall). Given that C2 exhibits a higher recall compared to C1, it could be viewed as a superior classifier based on these measures."
-    )
-
+    answers['(c) explain'] = "In this case, precision and recall provide additional information since they take into account the model's capacity to identify all positive samples (recall) and strike a balance between genuine positives and the prediction's relevance (precision). Based on these measures, C2 might be regarded as a superior classifier than C1, as it has a higher recall."
     return answers
 
 
@@ -156,30 +153,22 @@ def question7():
     answers['(i) Best classifier?'] = 'C2'
 
     # type: explain_string
-    answers['(i) Best classifier, explain'] = (
-        "C2 is the better classifier because it has a much higher recall/TPR and F1-measure than C1, indicating it correctly identifies more positive cases and has a better balance between precision and recall."
-    )
+    answers['(i) Best classifier, explain'] = 'Both C1 and C2 have a 50% precision rate, however C2 performs better in recall than C1, identifying 50 percent of real positives as opposed to 10 percent for C1. This means that even with the same precision rate, C2 is more effective at finding positive cases.'
 
     # type: string
     # choices: ['TPR-FPR', 'precision-recall-F1-Measure']
     answers['(ii) appropriate metric pair'] = 'precision-recall-F1-Measure'
 
     # type: explain_string
-    answers['(ii) appropriate metric pair, explain'] = (
-        "Precision, recall, and the F1-measure are the suitable metrics as they offer a comprehensive evaluation of a classifier's performance, particularly in scenarios with imbalanced datasets where positive cases are significantly less prevalent than negative ones."
-    )
+    answers['(ii) appropriate metric pair, explain'] = "Overall, C2 performs better than C1, as seen by a greater true positive rate and F1-measure (which takes precision and recall into account). C2 is generally a more successful classifier than C1, while having a greater false positive rate, which could be a disadvantage in situations where false positives are expensive. This is indicated by its much increased recall and F1-measure."
 
     # type: string
     # choices: ['C1', 'C2', 'C3']
     answers['(iii) preferred classifier?'] = 'C2'
 
     # type: explain_string
-    answers['(iii) best classifier, explain'] = (
-        "C2 is preferred because it maintains a balance between precision and recall, as indicated by its highest F1-measure among the classifiers. While C3 has the highest precision, it does so at the expense of recall, making it less desirable for cases where identifying all positives is important."
-    )
-
+    answers['(iii) best classifier, explain'] = 'The expenses related to false positives and negatives as well as the particular application requirements determine which of the three classifiers—C1, C2, and C3—to use. When accuracy in positive predictions is crucial and false positives are costly, C3, which has the highest precision and the lowest false positive rate, is the best option. When catching as many positive examples as possible is crucial, C2, which has the highest recall, is the chosen option. C2 is still the best overall choice when taking into account both kinds of errors, while C3 would be preferable for people who value accuracy and reducing false positives.'
     return answers
-
 
 
 #-----------------------------------------------------------
@@ -187,7 +176,7 @@ def question8():
     answers = {}
 
     # type: eval_float
-    answers['(a) precision for C0'] = "p"
+    answers['(a) precision for C0'] = "0.1*p"
 
     # type: eval_float
     answers['(a) recall for C0'] = "p"
@@ -227,11 +216,8 @@ def question9():
     # type: string
     # choices: ['recall', 'precision', 'F-measure', 'accuracy']
     answers['(i) worst metric?'] = 'accuracy'
-
     # type: explain_string
-    answers['(ii) Explain your choices of best and worst metrics'] = (
-        "In scenarios characterized by imbalanced classes, such as predicting weather where one outcome is significantly more prevalent, the F-measure emerges as the most suitable metric. It strikes a balance between precision and recall, essential for assessing model performance accurately. Accuracy, on the other hand, might not accurately reflect predictive prowess, particularly for the minority class, as it can be artificially inflated by a large number of true negatives. Therefore, it's considered the least appropriate metric in such imbalanced settings, as it doesn't adequately account for the class distribution and may mask deficiencies in capturing minority class instances."
-    )
+    answers['(ii) Explain your choices of best and worst metrics'] = 'When there is a class imbalance, recall and precision are not enough to assess overall performance, as shown by the misleadingly high accuracy of a classifier that predicts frequent events such as rain in an area that is prone to rain. The F-measure is the best performance indicator in these situations since it combines recall and precision into one measure, which helps to overcome the problems caused by class imbalance.'
     return answers
 
 
@@ -241,26 +227,21 @@ def question10():
 
     # type: string
     # choices: ['T1', 'T2']
-    answers['(a) better test based on F-measure?'] = "T1"
+    answers['(a) better test based on F-measure?'] = 'T1'
 
     # type: string
     # choices: ['T1', 'T2']
-    answers['(b) better test based on TPR/FPR?'] = "T2"
+    answers['(b) better test based on TPR/FPR?'] = 'T2'
 
     # type: string
     # choices: ['F1', 'TPR/FPR']
-    answers['(c) Which evaluation measure to use between the two tests?'] = "TPR/FPR"
+    answers['(c) Which evaluation measure to use between the two tests?'] = 'TPR/FPR'
 
     # type: explain_string
-    answers['(c) Which evaluation measure? Explain'] = (
-        "In a medical context where the consequences of missing a diagnosis (false negative) carry significant costs, such as in cancer detection, the True Positive Rate (TPR) and False Positive Rate (FPR) become paramount metrics for evaluating tests T1 and T2. This emphasizes the importance of the test's ability to accurately identify true positives."
-    )
+    answers['(c) Which evaluation measure? Explain'] = "When the significant cost of missing a diagnosis (false negative) surpasses the risks of false positives in medical context and as per the data, TPR/FPR is the ideal measure for evaluating cancer detection tests T1 and T2, emphasizing the importance of the test's ability to correctly identify genuine positives."
 
     # type: explain_string
-    answers['(d) Example scenario where you would reverse choise in (c)'] = (
-        "In situations where the population being examined has a low prevalence of cancer, false positives can have significant consequences, including psychological distress, exposure to potentially harmful tests, and increased financial burdens from unnecessary diagnostic procedures. In such scenarios, the F-measure becomes a preferred metric over TPR/FPR. The F-measure considers both precision and recall, offering a balanced assessment of a test's performance. This is particularly valuable when the focus is on minimizing false positives while still capturing as many true positives as possible. Prioritizing the F-measure is advisable when follow-up procedures following a positive test result are costly, invasive, or pose risks to the patient. By emphasizing the F-measure, healthcare providers can strive to achieve higher precision, thereby reducing the occurrence of false positives and mitigating the potential adverse effects associated with them."
-    )
-
+    answers['(d) Example scenario where you would reverse choise in (c)'] = "In the event that the population being tested has a high probability of not having cancer (a very low prevalence), you might prefer the F-measure over TPR/FPR. False positives can have serious consequences, such as psychological distress, exposure to harmful tests, or financial costs from additional needless diagnostic procedures. In this case, the F-measure would be preferred since it is a measure that considers both true positives and false positives. Furthermore, to guarantee that the test's precision is as high as feasible to lower the amount of false positives, you can give the F-measure priority if the follow-up procedures following a positive test are costly, invasive, or dangerous."
     return answers
 #-----------------------------------------------------------
 if __name__ == '__main__':
